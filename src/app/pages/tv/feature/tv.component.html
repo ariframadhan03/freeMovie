@@ -1,0 +1,14 @@
+<div>
+  <div class="mt-8" *ngFor="let tvItem of tv">
+    <ng-container *ngIf="tvItem.film.length > 0">
+      <p class="mb-5 font-bold text-xl">{{ tvItem.genre }}</p>
+      <div class="overflow-auto flex gap-3 h-[15rem]">
+        <app-tv-card
+          class="w-44 min-w-44"
+          *ngFor="let tvFilm of tvItem.film"
+          [data]="tvFilm"
+        ></app-tv-card>
+      </div>
+    </ng-container>
+  </div>
+</div>

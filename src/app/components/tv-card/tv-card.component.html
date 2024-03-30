@@ -1,0 +1,36 @@
+<div
+  [class]="
+    'tv-card group/card w-full h-full rounded-lg bg-repeat-round cursor-pointer relative'
+  "
+  [style]="
+    'background-image: url(' +
+    homepageService.generateImage(data.poster_path) +
+    ')'
+  "
+  (click)="redirectToDetail(data.id)"
+>
+  <div
+    *ngIf="!readonly"
+    class="absolute right-1 top-1 bg-[#afa6b9] p-1 rounded-full"
+    (click)="favoriteHandler(data.id)"
+  >
+    <img [src]="favoriteIcon" class="size-3" />
+  </div>
+
+  <div
+    class="tv-info backdrop-blur-lg bg-slate-100/20 opacity-60 absolute bottom-0 w-full p-2 rounded-b-lg invisible group-hover/card:visible"
+  >
+    <p
+      class="text-white whitespace-nowrap overflow-hidden text-ellipsis font-bold"
+    >
+      {{ data.name }}
+    </p>
+    <ul class="flex gap-1">
+      <li class="text-white text-xs" *ngFor="let genre of data.genre_names">
+        {{ genre }}
+      </li>
+    </ul>
+
+    <div *ngIf="data.adult" class="rounded-full">18+</div>
+  </div>
+</div>

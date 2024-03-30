@@ -1,0 +1,14 @@
+<div>
+  <div class="mt-8" *ngFor="let movie of movies">
+    <ng-container *ngIf="movie.movie.length > 0">
+      <p class="mb-5 font-bold text-xl">{{ movie.genre }}</p>
+      <div class="overflow-auto flex gap-3 h-[15rem]">
+        <app-movie-card
+          class="w-44 min-w-44"
+          *ngFor="let movieItem of movie.movie"
+          [data]="movieItem"
+        ></app-movie-card>
+      </div>
+    </ng-container>
+  </div>
+</div>

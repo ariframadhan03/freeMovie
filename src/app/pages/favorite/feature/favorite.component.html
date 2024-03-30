@@ -1,0 +1,19 @@
+<p class="mb-5 font-bold text-xl">Movie</p>
+<div class="movie-favorite-container overflow-auto flex gap-3 h-[15rem]">
+  <app-movie-card
+    class="w-44 min-w-44"
+    *ngFor="let movie of movies"
+    [data]="movie"
+    (valueChange)="removeFavoriteHandler(movie.id, 'movie')"
+  />
+</div>
+
+<p class="mb-5 font-bold text-xl mt-6">Tv</p>
+<div class="tv-favorite-container overflow-auto flex gap-3 h-[15rem]">
+  <app-tv-card
+    class="w-44 min-w-44"
+    *ngFor="let film of tv"
+    [data]="film"
+    (favoriteChange)="removeFavoriteHandler(film.id, 'tv')"
+  />
+</div>

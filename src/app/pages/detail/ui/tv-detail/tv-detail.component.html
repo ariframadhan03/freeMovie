@@ -1,0 +1,49 @@
+<img
+  class="w-full mb-10"
+  [src]="homepageService.generateImage(data.backdrop_path)"
+  alt="backdrop"
+/>
+
+<div class="flex gap-6 mb-10">
+  <img
+    class="w-[13.75rem] hidden md:block"
+    [src]="homepageService.generateImage(data.poster_path)"
+    alt="poster"
+  />
+
+  <div>
+    <h1 class="text-3xl md:text-5xl">{{ data.name }} ({{ releaseYear }})</h1>
+    <p>{{ genres }}</p>
+    <p>{{ data.tagline }}</p>
+
+    <div class="mt-3">
+      <h3 class="text-xl font-semibold">Overview</h3>
+      <p>{{ data.overview }}</p>
+    </div>
+
+    <div class="mt-3">
+      <h3 class="text-xl font-semibold">Languange</h3>
+      <p>{{ languages }}</p>
+    </div>
+
+    <div class="mt-3">
+      <h3 class="text-xl font-semibold">Status</h3>
+      <p>{{ data.status }}</p>
+    </div>
+
+    <div class="mt-3">
+      <h3 class="text-xl font-semibold">Creator</h3>
+      <p>{{ creator }}</p>
+    </div>
+  </div>
+</div>
+
+<h3 class="text-xl font-semibold mb-2">Sessions</h3>
+<div class="tv-favorite-container overflow-auto flex gap-3 h-[15rem] mb-20">
+  <app-tv-card
+    class="w-44 min-w-44"
+    *ngFor="let film of data.seasons"
+    [data]="film"
+    [readonly]="true"
+  />
+</div>

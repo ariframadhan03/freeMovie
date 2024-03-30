@@ -1,0 +1,38 @@
+<div>
+  <div
+    class="w-full h-[40rem] bg-[url('https://image.tmdb.org/t/p/w500/zAepSrO99owYwQqi0QG2AS0dHXw.jpg')] bg-repeat-round bg-cover"
+  ></div>
+
+  <div class="mt-8">
+    <p class="mb-5 font-bold text-xl">Now Playing Movie</p>
+    <div class="overflow-auto flex gap-3 h-[15rem]">
+      <app-movie-card
+        class="w-44 min-w-44"
+        *ngFor="let movie of nowPlayingMovies"
+        [data]="movie"
+      ></app-movie-card>
+    </div>
+  </div>
+
+  <div class="mt-8">
+    <p class="mb-5 font-bold text-xl">Popular Movie</p>
+    <div class="overflow-auto flex gap-3 h-[15rem]">
+      <app-movie-card
+        class="w-44 min-w-44"
+        *ngFor="let movie of popularMovies"
+        [data]="movie"
+      ></app-movie-card>
+    </div>
+  </div>
+
+  <div class="mt-8">
+    <p class="mb-5 font-bold text-xl">Popular Tv Series</p>
+    <div class="overflow-auto flex gap-3 h-[15rem]">
+      <app-tv-card
+        class="w-44 min-w-44"
+        *ngFor="let series of popularTv"
+        [data]="series"
+      ></app-tv-card>
+    </div>
+  </div>
+</div>
